@@ -18,7 +18,7 @@ Um ponteiro para a variável onde o valor máximo será armazenado.
 #include <stdio.h>
 
 void pulaLinha(){
-    printf("   ----------   \n\n");
+    printf("\n   ----------   \n\n");
 }
 
 void verificaValores(int *ptrn, int tamanho, int *ptrmin, int *ptrmax) {
@@ -29,8 +29,12 @@ for(int i = 1; i < tamanho; i++) {
     if(ptrn[i] > *ptrmax) {
     *ptrmax = ptrn[i]; // O conteúdo apontado por ptrmax recebe o novo maior valor
     }
+}
 
-
+for(int i = 1; i < tamanho; i++) {
+    if(ptrn[i] < *ptrmin) {
+    *ptrmin = ptrn[i]; // O conteúdo apontado por ptrmax recebe o novo menor valor
+    }
 }
 
 }
@@ -66,6 +70,17 @@ int main()
         printf(" %d", *(ptrn + i));
     }
     */
+
+
+     verificaValores(ptrn, tamanho, ptrmin, ptrmax);
+     printf("o maior valor: \n");
+     printf(" %d", *ptrmax);
+
+     pulaLinha();
+
+     printf("o menor valor é: \n");
+     printf(" %d", *ptrmin);
+
 
     return 0;
 }
